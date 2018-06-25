@@ -2,10 +2,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    respond_to do |format|
+      format.html
+      format.json do
+        @events = Event.all
+        render json: @events, each_serializer: EventSerializer
+      end
+    end
   end
 
-  # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
@@ -20,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
     params.require(:event).permit(:title, :description, :start, :end)
   end

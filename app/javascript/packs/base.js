@@ -6,16 +6,13 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
-import App from '../app.vue'
+import EventsComponent from '../EventsComponent.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
-    el,
-    render: h => h(App)
+    el: '#events',
+    render: h => h(EventsComponent)
   })
-
-  console.log(app)
 })
 
 
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
+// import EventsComponent from '../EventsComponent.vue'
 //
 // document.addEventListener('DOMContentLoaded', () => {
 //   const app = new Vue({
@@ -42,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     data: {
 //       message: "Can you say hello?"
 //     },
-//     components: { App }
+//     components: { EventsComponent }
 //   })
 // })
 //
@@ -56,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // import TurbolinksAdapter from 'vue-turbolinks';
 // import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
+// import EventsComponent from '../EventsComponent.vue'
 //
 // Vue.use(TurbolinksAdapter)
 //
@@ -66,6 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //     data: {
 //       message: "Can you say hello?"
 //     },
-//     components: { App }
+//     components: { EventsComponent }
 //   })
 // })
