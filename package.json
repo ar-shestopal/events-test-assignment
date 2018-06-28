@@ -3,12 +3,21 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "axios": "^0.18.0",
+    "caniuse-lite": "^1.0.30000860",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "postcss-loader": "^2.1.5",
+    "resolve-url-loader": "^2.3.0",
     "vue": "^2.5.16",
     "vue-full-calendar": "^4.0.0-1",
-    "vue-loader": "14.2.2",
-    "vue-template-compiler": "^2.5.16"
+    "vue-fullcalendar": "^1.0.9",
+    "webpack": "^3.4.0"
   },
   "devDependencies": {
+    "css-loader": "^0.28.11",
+    "vue-loader": "^14.2.2",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.16",
     "webpack-dev-server": "2.11.2"
   }
 }

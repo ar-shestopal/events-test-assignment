@@ -7,6 +7,12 @@
 
 import Vue from 'vue'
 import EventsComponent from '../EventsComponent.vue'
+// import fullCalendar from 'vue-fullcalendar'
+
+//
+// Vue.component('full-calendar', fullCalendar)
+import FullCalendar from 'vue-full-calendar'
+Vue.use(FullCalendar)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
