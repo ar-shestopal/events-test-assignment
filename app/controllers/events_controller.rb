@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
   # GET /events
   # GET /events.json
   def index
