@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       if @event.save
         format.json { render json: @event, status: :created }
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.json { render json: @event.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end

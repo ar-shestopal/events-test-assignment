@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Ruby version
+- ````>= 2.4.4```` 
+### System dependencies
+- ```Rails 5.2```
+- ``Postgresql 9.5``
+- ``node, yarn``
 
-Things you may want to cover:
+###Database creation
+- ``bundle exec rails db:setup``
 
-* Ruby version
 
-* System dependencies
+###How to run the test suite
+- ``bundle exec rspec``
 
-* Configuration
+###Run the application
+- ``bundle exec rails s``
+- ``./bin/webpack-dev-server``
 
-* Database creation
+###What should be improved
+- User can not see details of an event, or edit it. 
+- No error messages on Event form, only in javascript console
+- User can set duration of an event in minutes, 
+  not very comfortable if an event is a few days long
+- No user authentication.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

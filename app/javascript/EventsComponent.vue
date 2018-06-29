@@ -18,7 +18,15 @@
             <form  @submit.prevent="createEvent">
               <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" id="title" name="event[title]" type="text" v-model="newEvent.title">
+                <input class="form-control"
+                       id="title"
+                       name="event[title]" type="text" v-model="newEvent.title">
+              </div>
+              <div class="form-group">
+                <label for="Description">Title</label>
+                <input class="form-control"
+                       id="description"
+                       name="event[description]" type="text" v-model="newEvent.description">
               </div>
               <div class="form-group">
                 <label for="duration">Duration (min)</label>
@@ -62,24 +70,37 @@
                 callback(response.data);
               })
             },
-            color: '',
+            color: '#B8860B',
             textColor: 'black'
           }
         ],
 
         config: {
           eventDurationEditable: false,
+          disableDragging: true,
 
           dayClick: function(date, jsEvent, view) {
             $('#eventModal').modal('toggle');
             $(this).trigger("NewEventClick", [date]);
           }
         },
-        newEvent: { title: "", duration: 30, start: undefined }
+        newEvent: { title: "", duration: 30, start: undefined, description: "" },
+        errors: []
+
       }
     },
     methods: {
       createEvent: function() {
+        axios.post('events.json', { event: this.eventParams() })
+          .then((response) => {
+            console.log(response.data)
+          })
+          .catch(function(err) {
+            console.error('ERROR ' + err.response.data)
+          });
+      },
+
+      eventParams: function() {
         let title = this.newEvent.title;
         let start = moment(this.newEvent.start);
         let end = start.add(30, 'minutes');
@@ -87,13 +108,7 @@
         start = start.format();
         end = end.format();
 
-        let event = { title: title, start: start, end: end };
-
-        axios.post('events.json', { event: event })
-          .then((response) => {
-            console.log(response.data)
-          })
-          .error(e => { console.error('ERROR ' + e) });
+        return { title: title, start: start, end: end };
       }
     },
     mounted: function() {
